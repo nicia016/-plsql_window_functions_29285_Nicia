@@ -74,6 +74,7 @@ SELECT f.farmer_id, f.name, f.region, f.join_date
 FROM farmers f
 LEFT JOIN sales s ON f.farmer_id = s.farmer_id
 WHERE s.sale_id IS NULL;
+![Image AET](https://github.com/nicia016/-plsql_window_functions_29285_Nicia/blob/5b794dd406f531984a7cd31a1db4eaa8dc993dc0/screenshoots/left%20join.PNG)
 Business Interpretation: Identifies farmers who joined but haven't sold anything. These farmers may need training or motivation to start selling.
 
 4.3 **RIGHT JOIN - Unsold Crops**
