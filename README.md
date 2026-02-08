@@ -36,7 +36,7 @@ Month-over-month growth rate → Using LAG() function
 Farmer productivity quartiles → Using NTILE(4)
 ![Image AET](https://github.com/nicia016/-plsql_window_functions_29285_Nicia/blob/b17f80061ba4b2ceadfdada4646cb094b52914c8/screenshoots/ntile.PNG)
 3-month moving average of sales → Using AVG() OVER()
-
+![Image AET](https://github.com/nicia016/-plsql_window_functions_29285_Nicia/blob/3432b83d975980732f2f7f8071d62a96497809a5/screenshoots/avg%20over.PNG)
 3. **Database Schema Design**
 Entity Relationship Diagram
 text
@@ -256,9 +256,9 @@ Challenge: Segmenting farmers evenly
 Solution: Used NTILE(4) for perfect quartiles
 
 8. **References**
-PostgreSQL Documentation: Window Functions. Retrieved from https://www.postgresql.org/docs/current/tutorial-window.html
+PostgreSQL Documentation: Window Functions.
 
-W3Schools SQL Tutorial: JOIN Operations. Retrieved from https://www.w3schools.com/sql/sql_join.asp
+W3Schools SQL Tutorial: JOIN Operations. 
 
 Rwanda Agriculture Board. (2024). Crop Price Guidelines.
 
