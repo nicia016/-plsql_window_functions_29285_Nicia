@@ -2,7 +2,7 @@
 Business Context
 FreshHarvest Agribusiness Cooperative is a farmer-owned cooperative operating in Rwanda, connecting small-scale farmers with urban markets. The cooperative works across four regions: Northern, Southern, Eastern, and Western.
 
-Data Challenge
+**Data Challenge**
 The cooperative collects sales data but struggles to:
 
 Identify top-performing farmers and crops per region
@@ -13,7 +13,7 @@ Segment farmers for targeted support programs
 
 Analyze crop popularity to guide planting decisions
 
-Expected Outcome
+**Expected Outcome**
 By analyzing sales data using SQL JOINs and Window Functions, the cooperative aims to:
 
 Reward top-performing farmers with better pricing
@@ -57,8 +57,8 @@ crops: 8 different crop types
 
 sales: 25 sales records from Jan-Apr 2025
 
-4. Part A: SQL JOINs Implementation
-4.1 INNER JOIN - Complete Sales Transactions
+4. **Part A: SQL JOINs Implementation**
+4.1 **INNER JOIN - Complete Sales Transactions**
 sql
 -- Show all sales with complete farmer and crop details
 SELECT s.sale_id, f.name, c.crop_name, s.quantity_kg, s.total_amount
@@ -67,7 +67,7 @@ INNER JOIN farmers f ON s.farmer_id = f.farmer_id
 INNER JOIN crops c ON s.crop_id = c.crop_id;
 Business Interpretation: This query shows all successful sales where we have complete information. Used for generating sales reports and farmer payments.
 
-4.2 LEFT JOIN - Inactive Farmers
+4.2 **LEFT JOIN - Inactive Farmers**
 sql
 -- Find registered farmers who haven't made any sales
 SELECT f.farmer_id, f.name, f.region, f.join_date
@@ -76,7 +76,7 @@ LEFT JOIN sales s ON f.farmer_id = s.farmer_id
 WHERE s.sale_id IS NULL;
 Business Interpretation: Identifies farmers who joined but haven't sold anything. These farmers may need training or motivation to start selling.
 
-4.3 RIGHT JOIN - Unsold Crops
+4.3 **RIGHT JOIN - Unsold Crops**
 sql
 -- Identify crops that have never been sold
 SELECT c.crop_id, c.crop_name, c.category, c.price_per_kg
@@ -85,7 +85,7 @@ RIGHT JOIN crops c ON s.crop_id = c.crop_id
 WHERE s.sale_id IS NULL;
 Business Interpretation: Shows crops listed in the system but with no sales. May indicate unpopular crops or crops not currently being grown.
 
-4.4 FULL OUTER JOIN - Data Integrity Check
+4.4 **FULL OUTER JOIN - Data Integrity Check**
 sql
 -- Find all mismatches and gaps in the database
 SELECT 
@@ -98,7 +98,7 @@ FULL OUTER JOIN crops c ON s.crop_id = c.crop_id
 WHERE f.farmer_id IS NULL OR c.crop_id IS NULL;
 Business Interpretation: Helps maintain data quality by finding orphaned records and inconsistencies in the database.
 
-4.5 SELF JOIN - Regional Farmer Networks
+4.5 **SELF JOIN - Regional Farmer Networks**
 sql
 -- Connect farmers in the same region for peer learning
 SELECT f1.name AS farmer1, f2.name AS farmer2, f1.region
@@ -107,8 +107,8 @@ INNER JOIN farmers f2 ON f1.region = f2.region
 AND f1.farmer_id < f2.farmer_id;
 Business Interpretation: Creates farmer networks within the same region to facilitate knowledge sharing and collaboration.
 
-5. Part B: Window Functions Implementation
-5.1 Ranking Functions - Top Crops per Region
+5. **Part B: Window Functions Implementation**
+5.1 **Ranking Functions - Top Crops per Region**
 sql
 WITH region_rankings AS (
     SELECT 
@@ -126,7 +126,7 @@ FROM region_rankings
 WHERE rank <= 3;
 Key Finding: Tomatoes are the top-selling crop in all regions, generating the highest revenue.
 
-5.2 Aggregate Window Functions - Running Totals
+5.2 **Aggregate Window Functions - Running Totals**
 sql
 SELECT 
     DATE_TRUNC('month', sale_date) AS month,
@@ -137,7 +137,7 @@ GROUP BY DATE_TRUNC('month', sale_date)
 ORDER BY month;
 Key Finding: Sales show steady growth from January (RWF 238,250) to April (RWF 310,250) with a running total reaching RWF 1,028,750.
 
-5.3 Navigation Functions - Month-over-Month Growth
+5.3 **Navigation Functions - Month-over-Month Growth**
 sql
 WITH monthly AS (
     SELECT 
@@ -155,7 +155,7 @@ SELECT
 FROM monthly;
 Key Finding: March showed the highest growth at 36.36%, while February had a slight decline of -5.32%.
 
-5.4 Distribution Functions - Farmer Segmentation
+5.4 **Distribution Functions - Farmer Segmentation**
 sql
 SELECT 
     farmer_id,
@@ -181,8 +181,8 @@ FROM (
 ) AS farmer_sales;
 Key Finding: Farmers are segmented into 4 equal groups, with the top quartile (High Performers) contributing 45% of total sales.
 
-6. Results Analysis
-Descriptive Analysis (What Happened?)
+6. **Results Analysis**
+**Descriptive Analysis**
 Total sales: RWF 1,028,750 from January to April 2025
 
 Top crop: Tomatoes (RWF 312,000 across all regions)
@@ -191,7 +191,7 @@ Top region: Southern region (RWF 287,000 in sales)
 
 Most active farmer: Alice Niyomugabo (5 sales transactions)
 
-Diagnostic Analysis (Why Did It Happen?)
+**Diagnostic Analysis** 
 Seasonal Factors: Sales increased in March/April due to harvest season
 
 Crop Popularity: Tomatoes command higher prices (RWF 1,200/kg) and have consistent demand
@@ -200,20 +200,20 @@ Regional Performance: Southern region has more experienced farmers with longer m
 
 Farmer Engagement: Top-performing farmers sell multiple crop types
 
-Prescriptive Analysis (What Should Be Done Next?)
-Resource Allocation:
+**Prescriptive Analysis** 
+**Resource Allocation:**
 
 Increase tomato seedling distribution by 30% for next season
 
 Focus training programs in Northern region to improve performance
 
-Farmer Support:
+**Farmer Support:**
 
 Create mentorship program pairing top quartile farmers with bottom quartile
 
 Provide targeted training for farmers selling only one crop type
 
-Business Decisions:
+**Business Decisions:**
 
 Negotiate better prices for top-performing farmers
 
@@ -221,7 +221,7 @@ Consider discontinuing crops with no sales (if any identified)
 
 Implement quarterly performance reviews using these SQL reports
 
-System Improvements:
+**System Improvements:**
 
 Automate monthly sales reports using these queries
 
@@ -229,7 +229,7 @@ Create dashboard for real-time sales monitoring
 
 Implement alerts for farmers with declining sales
 
-7. Technical Implementation Notes
+7. **Technical Implementation Notes**
 Database System: PostgreSQL 15
 Tools Used:
 pgAdmin 4 for database management
@@ -250,7 +250,7 @@ Solution: Used window frames with ORDER BY clause
 Challenge: Segmenting farmers evenly
 Solution: Used NTILE(4) for perfect quartiles
 
-8. References
+8. **References**
 PostgreSQL Documentation: Window Functions. Retrieved from https://www.postgresql.org/docs/current/tutorial-window.html
 
 W3Schools SQL Tutorial: JOIN Operations. Retrieved from https://www.w3schools.com/sql/sql_join.asp
@@ -259,10 +259,10 @@ Rwanda Agriculture Board. (2024). Crop Price Guidelines.
 
 Maniraguha, E. (2025). Database Development with PL/SQL Course Materials.
 
-9. Academic Integrity Statement
+9. **Academic Integrity Statement**
 "All sources were properly cited. Implementations and analysis represent original work. No AI-generated content was copied without attribution or adaptation."
 
-10. Conclusion
+10. **Conclusion**
 This project successfully demonstrated practical application of SQL JOINs and Window Functions to solve real agricultural business problems. The analysis provided actionable insights that FreshHarvest Cooperative can use to improve farmer livelihoods, optimize crop selection, and increase overall sales performance.
 
 The technical skills mastered in this assignment—particularly in analytical SQL—provide a strong foundation for database development and business intelligence roles in the agricultural technology sector.
