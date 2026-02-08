@@ -32,7 +32,7 @@ Top 5 crops per region → Using RANK() function
 Running monthly sales total → Using SUM() OVER()
 ![Image AET](https://github.com/nicia016/-plsql_window_functions_29285_Nicia/blob/d4fd10c9120c86b74d303d838cc61638b14e29d5/screenshoots/sum%20over.PNG)
 Month-over-month growth rate → Using LAG() function
-
+![Image AET](https://github.com/nicia016/-plsql_window_functions_29285_Nicia/blob/1ee1cdbed33b5ec1081a94fc355b903017351dec/screenshoots/lag.PNG)
 Farmer productivity quartiles → Using NTILE(4)
 
 3-month moving average of sales → Using AVG() OVER()
