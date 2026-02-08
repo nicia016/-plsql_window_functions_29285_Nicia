@@ -30,7 +30,7 @@ Five measurable goals were defined:
 Top 5 crops per region → Using RANK() function
 ![Image AET](https://github.com/nicia016/-plsql_window_functions_29285_Nicia/blob/6041467f31b927ce6e639ae2654477318d0d03ff/screenshoots/rank.PNG)
 Running monthly sales total → Using SUM() OVER()
-
+![Image AET](https://github.com/nicia016/-plsql_window_functions_29285_Nicia/blob/d4fd10c9120c86b74d303d838cc61638b14e29d5/screenshoots/sum%20over.PNG)
 Month-over-month growth rate → Using LAG() function
 
 Farmer productivity quartiles → Using NTILE(4)
