@@ -34,7 +34,7 @@ Running monthly sales total → Using SUM() OVER()
 Month-over-month growth rate → Using LAG() function
 ![Image AET](https://github.com/nicia016/-plsql_window_functions_29285_Nicia/blob/1ee1cdbed33b5ec1081a94fc355b903017351dec/screenshoots/lag.PNG)
 Farmer productivity quartiles → Using NTILE(4)
-
+![Image AET](https://github.com/nicia016/-plsql_window_functions_29285_Nicia/blob/b17f80061ba4b2ceadfdada4646cb094b52914c8/screenshoots/ntile.PNG)
 3-month moving average of sales → Using AVG() OVER()
 
 3. **Database Schema Design**
