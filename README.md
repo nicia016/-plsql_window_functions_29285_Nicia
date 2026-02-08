@@ -100,6 +100,7 @@ FROM farmers f
 FULL OUTER JOIN sales s ON f.farmer_id = s.farmer_id
 FULL OUTER JOIN crops c ON s.crop_id = c.crop_id
 WHERE f.farmer_id IS NULL OR c.crop_id IS NULL;
+![Image AET](https://github.com/nicia016/-plsql_window_functions_29285_Nicia/blob/ab00dbb21a8708f09d95060588942e0b0dc0c724/screenshoots/fullout%20join.PNG)
 Business Interpretation: Helps maintain data quality by finding orphaned records and inconsistencies in the database.
 
 4.5 **SELF JOIN - Regional Farmer Networks**
