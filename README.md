@@ -28,7 +28,7 @@ Forecast sales for the next planting season
 Five measurable goals were defined:
 
 Top 5 crops per region → Using RANK() function
-
+![Image AET](https://github.com/nicia016/-plsql_window_functions_29285_Nicia/blob/6041467f31b927ce6e639ae2654477318d0d03ff/screenshoots/rank.PNG)
 Running monthly sales total → Using SUM() OVER()
 
 Month-over-month growth rate → Using LAG() function
