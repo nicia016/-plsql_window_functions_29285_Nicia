@@ -84,6 +84,7 @@ SELECT c.crop_id, c.crop_name, c.category, c.price_per_kg
 FROM sales s
 RIGHT JOIN crops c ON s.crop_id = c.crop_id
 WHERE s.sale_id IS NULL;
+![Image AET](https://github.com/nicia016/-plsql_window_functions_29285_Nicia/blob/6e371a0fc70abf4ccf068f62736ed5720cf52c3d/screenshoots/right%20join.PNG)
 Business Interpretation: Shows crops listed in the system but with no sales. May indicate unpopular crops or crops not currently being grown.
 
 4.4 **FULL OUTER JOIN - Data Integrity Check**
