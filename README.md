@@ -65,7 +65,7 @@ SELECT s.sale_id, f.name, c.crop_name, s.quantity_kg, s.total_amount
 FROM sales s
 INNER JOIN farmers f ON s.farmer_id = f.farmer_id
 INNER JOIN crops c ON s.crop_id = c.crop_id;
-
+![Image AET](https://github.com/nicia016/-plsql_window_functions_29285_Nicia/blob/dd8ddb9d2ff81acf13ee975de899139bfa70b747/screenshoots/inner%20join.PNG)
 
 Business Interpretation: This query shows all successful sales where we have complete information. Used for generating sales reports and farmer payments.
 
