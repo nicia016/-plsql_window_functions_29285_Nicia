@@ -56,7 +56,7 @@ farmers: 10 farmers across 4 regions
 crops: 8 different crop types
 
 sales: 25 sales records from Jan-Apr 2025
-
+![Image AET](https://github.com/nicia016/-plsql_window_functions_29285_Nicia/blob/2bb1959fc8f2dee9639613cce419ae7ac209ba0f/screenshoots/er%20digram.PNG)
 4. **Part A: SQL JOINs Implementation**
 4.1 **INNER JOIN - Complete Sales Transactions**
 sql
